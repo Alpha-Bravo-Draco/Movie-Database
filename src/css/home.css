@@ -1,0 +1,48 @@
+.home { display: grid; gap: 22px; }
+
+.search-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  outline: none;
+  transition: box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.search-input::placeholder { color: var(--muted); }
+.search-input:focus { box-shadow: var(--ring); border-color: rgba(108,140,255,0.55); background: rgba(255,255,255,0.06); }
+
+.search-button {
+  /* base .btn styles inlined (since CSS Modules compose isn't supported here) */
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 10px; border-radius: 12px; border: 0; cursor: pointer; padding: 10px 16px;
+  background: var(--primary); color: #fff;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+.search-button:hover { transform: translateY(-1px); background: var(--primary-2); box-shadow: var(--shadow-2); }
+.search-button:active { transform: translateY(0); }
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+  align-content: start;
+}
+
+@media (min-width: 640px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
+

@@ -1,0 +1,133 @@
+.movie-details {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(14, 25, 45, 0.95);
+  border-radius: 1rem;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.movie-header {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movie-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  background: linear-gradient(45deg, #64b5f6, #2196f3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rating {
+  background: rgba(33, 150, 243, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  color: #2196f3;
+}
+
+.movie-content {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.movie-poster {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.movie-poster:hover {
+  transform: scale(1.02);
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+}
+
+.movie-info {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.movie-info p {
+  margin: 1rem 0;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.movie-info strong {
+  color: #90caf9;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.genres span {
+  background: rgba(33, 150, 243, 0.2);
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  color: #90caf9;
+}
+
+.overview {
+  margin-top: 2rem !important;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #90caf9;
+  background: rgba(14, 25, 45, 0.95);
+  border-radius: 1rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .movie-content {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .movie-header h1 {
+    font-size: 2rem;
+  }
+
+  .movie-details {
+    padding: 1rem;
+    margin: 1rem;
+  }
+}

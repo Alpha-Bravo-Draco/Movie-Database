@@ -1,0 +1,13 @@
+.navbar {
+  position: sticky; top: 0; 
+  background: rgba(10, 14, 26, 0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+.navbar-inner { width: 1100px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 16px; }
+.brand { font-weight: 800; letter-spacing: 0.4px; color: var(--text); }
+.spacer { flex: 1; }
+.nav-link { color: var(--muted); text-decoration: none; padding: 8px 10px; border-radius: 10px; transition: color 160ms ease, background 160ms ease; }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+.nav-link.active { color: #fff; background: rgba(108,140,255,0.22); }
+
