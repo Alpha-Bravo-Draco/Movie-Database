@@ -8,27 +8,30 @@ function Home() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
+  const loadPopularMovies = async () => {
+    try {
+      const popularMovies = await getPopularMovies();
+      setMovies(popularMovies);
+      setError("");
+    } catch (err) {
+      setError("Failed to load movies");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Load popular movies on component mount
   useEffect(() => {
-    const loadPopularMovies = async () => {
-      try {
-        const popularMovies = await getPopularMovies();
-        setMovies(popularMovies);
-        setError("");
-      } catch (err) {
-        setError("Failed to load movies");
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     loadPopularMovies();
   }, []);
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    if (!searchQuery.trim()) return;
+    if (!searchQuery.trim()) {
+      loadPopularMovies();
+      return;
+    }
 
     setLoading(true);
     try {
@@ -43,8 +46,26 @@ function Home() {
     }
   };
 
-  const handleChange = (e) => {
-    setSearchQuery(e.target.value);
+  const handleChange = async (e) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+
+    if (!value.trim()) {
+      loadPopularMovies();
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const results = await searchMovies(value);
+      setMovies(results);
+      setError("");
+    } catch (err) {
+      setError("Failed to search movies");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
